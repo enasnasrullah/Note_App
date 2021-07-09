@@ -1,0 +1,27 @@
+<section id="login">
+    <div class="container">
+<form class="w-50 m-auto" [formGroup]='signin' (ngSubmit)='signin.valid&&login()' >
+  
+   <input [class.is-valid]='signin.get("email")?.status=="VALID"'  formControlName='email' type="email" placeholder="Write Your Email " class="form-control my-3">
+   <div *ngIf='signin.get("email")?.errors!=null&& signin.get("email")?.touched' class="alert alert-danger">
+    <p *ngIf='signin.get("email")?.errors?.required'> Email is required</p>
+    <p *ngIf='signin.get("email")?.errors?.email'>Email is invalid</p>
+    
+</div>
+  
+   <input [class.is-valid]='signin.get("password")?.status=="VALID"' type="password" formControlName='password' placeholder="Write Your password " class="form-control my-3">
+   <div *ngIf='signin.get("password")?.errors!=null&& signin.get("password")?.touched' class="alert alert-danger">
+    <p *ngIf='signin.get("password")?.errors?.required'> password is required</p>
+    <p *ngIf='signin.get("password")?.errors?.pattern'>password must start with capital then from 3 to 10 charc</p>
+  
+</div>
+
+
+   <button [disabled]='!signin.valid'[style.backgroundColor]='!signin.valid? "#ffc0cb": "#800080"'  class="btn btn-pink py-2">LOGIN</button>
+<div *ngIf='errors' class=" text-center my-3 alert alert-danger">
+    {{errors}}
+</div>
+
+</form>
+</div>
+</section>

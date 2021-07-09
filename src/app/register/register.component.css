@@ -1,0 +1,19 @@
+section
+{
+    min-height: 100vh;
+    background-image: linear-gradient(to top,#800080, #ffc0cb);
+
+}
+form
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+.btn-pink
+{
+    background-color: #800080;
+    color: white;
+    width: 100%;
+}
