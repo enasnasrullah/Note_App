@@ -1,0 +1,18 @@
+a{
+    color: #800080;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover
+{
+    color: #800080;
+    text-decoration: none;
+}
+.bg-light
+{
+    background-color: transparent important!;
+}
+.pink
+{
+    color: #800080;
+}

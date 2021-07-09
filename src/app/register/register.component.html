@@ -1,0 +1,51 @@
+<section id="register">
+    <div class="container">
+<form  class="w-50 m-auto" [formGroup]='signup' (ngSubmit)="signup.valid &&register()"   >
+   <div class="row my-3">
+       <div class="col-md-6">
+           <input [class.is-valid]='signup.get("first_name")?.status=="VALID"' formControlName='first_name' class="form-control " type="text" placeholder="Write Your First Name ">
+           <div *ngIf='signup.get("first_name")?.errors!=null&& signup.get("first_name")?.touched' class="alert alert-danger">
+            <p *ngIf='signup.get("first_name")?.errors?.required'> First name is required</p>
+            <p *ngIf='signup.get("first_name")?.errors?.minlength'>First name minlength is 3</p>
+            <p *ngIf='signup.get("first_name")?.errors?.maxlength'>First name maxlength is 10</p>
+        </div>
+        </div>
+       <div class="col-md-6">
+        <input [class.is-valid]='signup.get("last_name")?.status=="VALID"' formControlName='last_name' class="form-control" type="text" placeholder="Write Your Last Name ">
+        <div *ngIf='signup.get("last_name")?.errors!=null&& signup.get("last_name")?.touched' class="alert alert-danger">
+            <p *ngIf='signup.get("last_name")?.errors?.required'> Last name is required</p>
+            <p *ngIf='signup.get("last_name")?.errors?.minlength'>Last name minlength is 3</p>
+            <p *ngIf='signup.get("last_name")?.errors?.maxlength'>Last name maxlength is 10</p>
+        </div>
+    </div>
+   </div>
+   <input  [class.is-valid]='signup.get("email")?.status=="VALID"'formControlName='email' type="email" placeholder="Write Your Email " class="form-control my-3">
+   <div *ngIf='signup.get("email")?.errors!=null&& signup.get("email")?.touched' class="alert alert-danger">
+    <p *ngIf='signup.get("email")?.errors?.required'> Email is required</p>
+    <p *ngIf='signup.get("email")?.errors?.email'>Email is invalid</p>
+    
+</div>
+   <input [class.is-valid]='signup.get("age")?.status=="VALID"' formControlName='age' type="age" placeholder="Write Your age " class="form-control my-3">
+   <div *ngIf='signup.get("age")?.errors!=null&& signup.get("age")?.touched' class="alert alert-danger">
+    <p *ngIf='signup.get("age")?.errors?.required'> age is required</p>
+    <p *ngIf='signup.get("age")?.errors?.min'>age min is 10</p>
+    <p *ngIf='signup.get("age")?.errors?.max'>age max is 60</p>
+</div>
+  
+<input [class.is-valid]='signup.get("password")?.status=="VALID"' formControlName='password' type="password" placeholder="Write Your password " class="form-control my-3">
+<div *ngIf='signup.get("password")?.errors!=null&& signup.get("password")?.touched' class="alert alert-danger">
+    <p *ngIf='signup.get("password")?.errors?.required'> password is required</p>
+    <p *ngIf='signup.get("password")?.errors?.pattern'>password must start with capital then from 3 to 10 charc</p>
+  
+</div>
+<button [disabled]='!signup.valid'[style.backgroundColor]='!signup.valid? "#ffc0cb": "#800080"' class="btn btn-pink py-2"><span *ngIf='!isClicked'>Register</span> <span *ngIf='isClicked'>Waiting.........</span></button>
+<div *ngIf='isSuccess' class="text-center alert alert-success my-3" role="alert">
+    {{responseMsg}}
+</div>
+<div *ngIf='email' class="text-center alert alert-danger my-3" role="alert">
+    {{emailMsg}}
+</div>
+
+</form>
+</div>
+</section>

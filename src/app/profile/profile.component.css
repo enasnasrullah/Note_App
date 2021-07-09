@@ -1,0 +1,38 @@
+
+  
+#profile
+{
+    background-color: #ffc0cb;
+    min-height: 100vh;
+}
+
+.btn-pink
+{
+    background-color: #800080;
+    color: white;
+}
+.note
+{
+    min-height: 300px;
+    min-width: 300px;
+    background-color:#E6DADA;
+}
+.note h2
+{
+    color: #800080;
+}
+.pink
+{
+    color: #800080;
+    font-size: 20px;
+    cursor: pointer;
+}
+.rose
+{
+    color: #ffc0cb;
+}
+.pinkSpin
+{
+    color: #800080;
+    font-size: 40px;
+}
